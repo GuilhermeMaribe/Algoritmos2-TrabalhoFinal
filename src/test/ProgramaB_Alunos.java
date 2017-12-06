@@ -28,7 +28,7 @@ public class ProgramaB_Alunos {
 		ListaEncadeada<Aluno> lista = ListaEncadeada.loadFromFile(arquivo);
 		
 		System.out.println(lista.search(new SearchByName(name)));
-		lista.removeIf(new NamePredicate(name));
+		//lista.removeIf(new NamePredicate(name));
 		if (lista.search(new SearchByName(name)) != null)
 			System.out.println(name + " nao deveria estar na lista.");
 
