@@ -8,16 +8,18 @@ public class ListaEncadeada<T> {
 	private static class ListaNo<T> {
 		private T dado;
 		private ListaNo<T> proximo;
+		private ListaNo<T> anterior;
 		
 		public ListaNo(T dado) {
 			this.dado = dado;
 			this.proximo = null;
+			this.anterior = null;
 		}
 	}
 	
 	private ListaNo<T> head;
 	private ListaNo<T> tail;
-	private ListaNo<T> totalDeElementos;
+	
 		
 	public void append(T dado)	{
 		ListaNo<T> novo = new ListaNo<>(dado);
@@ -35,13 +37,15 @@ public class ListaEncadeada<T> {
 		 ListaNo<T> novo = new ListaNo<>(dado);
 		   head = novo;
 		    
-		    if(totalDeElementos == null){
-	          tail = head;
+		    if(head != null){
+	          head.anterior = novo;
 		    }
-		    totalDeElementos++;
+		    else {
+		    	tail = novo;
+		    }
 		  }
 	
-	public T search(Comparator<T> cmp)
+	public T search(T key, Comparator<T> cmp)
 	{
 		return null;
 	}

@@ -9,7 +9,7 @@ import comparators.SearchByName;
 import datastructures.ListaEncadeada;
 import model.Aluno;
 import predicates.NamePredicate;
-
+/*
 public class ProgramaB_Alunos {
 
 	private static final String name = "";
@@ -28,7 +28,7 @@ public class ProgramaB_Alunos {
 		ListaEncadeada<Aluno> lista = ListaEncadeada.loadFromFile(arquivo);
 		
 		System.out.println(lista.search(new SearchByName(name)));
-		//lista.removeIf(new NamePredicate(name));
+		lista.removeIf(new NamePredicate(name));
 		if (lista.search(new SearchByName(name)) != null)
 			System.out.println(name + " nao deveria estar na lista.");
 
@@ -36,4 +36,4 @@ public class ProgramaB_Alunos {
 		System.out.println(lista.search(new SearchByAgeAndCity(idade,cidade)));
 	}
 
-}
+}*/
