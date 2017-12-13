@@ -5,7 +5,7 @@ public class Aluno {
 	private String matricula, name, email, sexo, empresa, cidade;
 	private int idade;
 	
-	public Aluno(String matricula, String name, int idade, String sexo) {
+	public Aluno() {
 		this.matricula = matricula;
 		this.name = name;
 		this.idade = idade;

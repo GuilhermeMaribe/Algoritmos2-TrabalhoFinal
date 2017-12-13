@@ -8,8 +8,7 @@ public class SearchByName implements Comparator<Aluno> {
 
 	@Override
 	public int compare(Aluno o1, Aluno o2) {
-		o1.getName().equals(o2.getName());
-		return 0;
+		return o1.getName().compareTo(o2.getName());
 	}
 
 }

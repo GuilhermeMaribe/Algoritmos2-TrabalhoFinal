@@ -2,6 +2,9 @@ package datastructures;
 
 import java.io.FileReader;
 import java.util.Comparator;
+import java.util.Scanner;
+
+import model.Aluno;
 
 public class ListaEncadeada<T> {
 	
@@ -57,8 +60,29 @@ public class ListaEncadeada<T> {
 		}
 	}
 	
-	public static <T> ListaEncadeada<T> loadFromFile(FileReader arquivo)
+	public static ListaEncadeada<model.Aluno> loadFromFile(FileReader arquivo)
 	{
-		return null;
+		ListaEncadeada<Aluno> alunos = new ListaEncadeada<>();
+		Scanner sc;
+
+		sc = new Scanner(arquivo);
+		sc.useDelimiter("[,\n]");
+
+		while (sc.hasNext()) {
+			Aluno aluno = new Aluno();
+			aluno.setMatricula(sc.next());
+			aluno.setName(sc.next());
+			aluno.setEmail(sc.next());
+			aluno.setIdade(sc.nextInt());
+			aluno.setSexo(sc.next());
+			aluno.setEmpresa(sc.next());
+			aluno.setCidade(sc.next());
+			
+			alunos.append(aluno);
+		}
+
+		sc.close();
+		
+		return alunos;
 	}
 }
