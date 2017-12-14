@@ -1,5 +1,7 @@
 package datastructures;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Comparator;
 import java.util.Scanner;
@@ -7,6 +9,8 @@ import java.util.Scanner;
 import model.Aluno;
 
 public class ListaEncadeada<T> {
+	private ListaNo<T> head;
+	private ListaNo<T> tail;
 	
 	private static class ListaNo<T> {
 		private T dado;
@@ -19,11 +23,7 @@ public class ListaEncadeada<T> {
 			this.anterior = null;
 		}
 	}
-	
-	private ListaNo<T> head;
-	private ListaNo<T> tail;
-	
-		
+			
 	public void append(T dado)	{
 		ListaNo<T> novo = new ListaNo<>(dado);
 		
@@ -48,8 +48,13 @@ public class ListaEncadeada<T> {
 		    }
 		  }
 	
-	public T search(T key, Comparator<T> cmp)
-	{
+	public T search(T key, Comparator<T> cmp) {
+		ListaNo<T> i = head;
+		while( i != null){
+			if(cmp.compare(key,  i.dado) == 0){
+				return i.dado;
+			}
+		}
 		return null;
 	}
 	public void printObjects()	{
@@ -64,10 +69,13 @@ public class ListaEncadeada<T> {
 	{
 		ListaEncadeada<Aluno> alunos = new ListaEncadeada<>();
 		Scanner sc;
-
-		sc = new Scanner(arquivo);
-		sc.useDelimiter("[,\n]");
-
+		try{
+			sc = new Scanner(new File("data/alunos.csv"));
+			sc.useDelimiter("[,\n]");
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo não localizado");
+			return null;
+		}
 		while (sc.hasNext()) {
 			Aluno aluno = new Aluno();
 			aluno.setMatricula(sc.next());

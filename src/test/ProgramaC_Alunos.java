@@ -11,10 +11,10 @@ import model.Aluno;
 
 public class ProgramaC_Alunos {
 
-	private static final String name = "";
-	private static final String email = "";
-	private static final int idade = 0;
-	private static final String cidade = "";
+	private static final String name = "Polly Hansen";
+	private static final String email = "pollyhansen@xymonk.com";
+	private static final int idade = 23;
+	private static final String cidade = "Hillsboro";
 	
 	public static void main(String[] args) {
 		FileReader arquivo = null;
