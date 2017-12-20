@@ -10,10 +10,16 @@ public class Aluno {
 		this.name = name;
 		this.idade = idade;
 		this.sexo = sexo;
-		
-		
+				
 	}
-	
+
+	public Aluno(String name2, String email2, int idade2, String cidade2) {
+		this.name = name2;
+		this.email = email2;
+		this.cidade = cidade2;
+		this.idade = idade2;
+	}
+
 	public String getMatricula() {
 		return matricula;
 	}

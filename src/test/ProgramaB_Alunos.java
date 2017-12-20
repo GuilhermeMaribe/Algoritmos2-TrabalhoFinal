@@ -10,9 +10,9 @@ import datastructures.ListaEncadeada;
 import model.Aluno;
 import predicates.NamePredicate;
 
-/*public class ProgramaB_Alunos {
+public class ProgramaB_Alunos {
 
-	private static final String name = "";
+	private static final String name = "Polly Hansen";
 	private static final String email = "";
 	private static final int idade = 0;
 	private static final String cidade = "";
@@ -38,4 +38,4 @@ import predicates.NamePredicate;
 		System.out.println(lista.search(busca, new SearchByAgeAndCity()));
 	}
 
-}*/
+}

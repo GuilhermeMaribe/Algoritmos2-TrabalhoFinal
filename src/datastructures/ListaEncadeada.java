@@ -7,6 +7,7 @@ import java.util.Comparator;
 import java.util.Scanner;
 
 import model.Aluno;
+import predicates.NamePredicate;
 
 public class ListaEncadeada<T> {
 	private ListaNo<T> head;
@@ -17,15 +18,19 @@ public class ListaEncadeada<T> {
 		private ListaNo<T> proximo;
 		private ListaNo<T> anterior;
 		
-		public ListaNo(T dado) {
+		public ListaNo(T dado, ListaNo<T> anterior, ListaNo<T> proximo) {
 			this.dado = dado;
-			this.proximo = null;
-			this.anterior = null;
+			this.proximo = proximo;
+			this.anterior = anterior;
 		}
+
+		
+		
+		
 	}
 			
 	public void append(T dado)	{
-		ListaNo<T> novo = new ListaNo<>(dado);
+		ListaNo<T> novo = new ListaNo<>(dado, tail, null);
 		
 		if (tail != null) {
 			tail.proximo = novo;
@@ -37,7 +42,7 @@ public class ListaEncadeada<T> {
 	}
 	
 	public void addFirst(T dado)	{
-		 ListaNo<T> novo = new ListaNo<>(dado);
+		 ListaNo<T> novo = new ListaNo<>(dado, null, head);
 		   head = novo;
 		    
 		    if(head != null){
@@ -65,8 +70,8 @@ public class ListaEncadeada<T> {
 		}
 	}
 	
-	public static ListaEncadeada<model.Aluno> loadFromFile(FileReader arquivo)
-	{
+	public static ListaEncadeada<model.Aluno> loadFromFile(FileReader arquivo)	{
+		
 		ListaEncadeada<Aluno> alunos = new ListaEncadeada<>();
 		Scanner sc;
 		try{
@@ -92,5 +97,10 @@ public class ListaEncadeada<T> {
 		sc.close();
 		
 		return alunos;
+	}
+
+	public void removeIf(NamePredicate namePredicate) {
+		// TODO Auto-generated method stub
+		
 	}
 }
